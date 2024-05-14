@@ -45,4 +45,10 @@ These are a few of the native applications shipped:
  - 1Password
  - Google Chrome
 
+Default flatpaks
+
+ - Inkscape
+ - VLC
+ - Discord
+
 Adding new apps should preferably be done using flatpak or AppImages.
