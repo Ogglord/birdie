@@ -1,0 +1,88 @@
+name: birdie-os
+description: Bazzite for developers
+
+base-image: ghcr.io/ublue-os/bazzite
+image-version: stable
+
+modules:
+  - type: files
+    files:
+      - usr: /usr
+      - etc: /etc
+
+  - type: script
+    snippets:
+      - "sysctl -p"
+    scripts:
+      - image-info.sh
+
+  - type: bling
+    install:
+      - 1password # install 1Password (stable) and `op` CLI tool      
+
+  - type: rpm-ostree
+    install:
+      - virt-manager
+      - edk2-ovmf
+      - qemu
+      - code
+      - docker-ce
+      - docker-ce-cli
+      - docker-buildx-plugin
+      - docker-compose-plugin
+      - podman-compose
+      - podman-tui
+      - podmansh
+      - bat
+      - eza
+      - firefox
+      - firefox-langpacks
+      - fzf
+      - ncdu
+      - rclone
+      - ripgrep
+      - rsync
+      - tealdeer
+      - tmux
+       
+
+  - type: systemd
+    user:
+      enabled:
+        - birdie-user-setup
+    system:
+      enabled:
+        - birdie-system-setup
+        - docker.socket
+        - podman.socket
+        - libvirtd
+
+  - type: script
+    snippets:
+      - "wget -qO- https://git.io/papirus-icon-theme-install | sh"
+      - "sed -i '/^PRETTY_NAME/s/Bazzite/Birdie/' /usr/lib/os-release"
+      - "sed -i 's/bazzite_logo.svgz/birdie_logo.svgz/g' /usr/share/plasma/look-and-feel/com.valve.vapor.desktop/contents/splash/Splash.qml"
+      - "sed -i 's/bazzite_logo.svgz/birdie_logo.svgz/g' /usr/share/plasma/look-and-feel/com.valve.vgui.desktop/contents/splash/Splash.qml"
+      - "sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/vscode.repo"
+      - "sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/docker-ce.repo"
+
+  - type: default-flatpaks
+    notify: true
+    user:
+      install:
+        - org.inkscape.Inkscape
+
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - FiraCode
+        - Hack
+        - SourceCodePro
+        - Terminus
+        - JetBrainsMono
+        - NerdFontsSymbolsOnly
+      google-fonts:
+        - Roboto
+        - Open Sans
+
+  - type: signing

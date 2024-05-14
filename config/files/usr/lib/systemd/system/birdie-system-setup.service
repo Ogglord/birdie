@@ -1,0 +1,12 @@
+[Unit]
+Description=Configure birdie system
+After=rpm-ostreed.service tuned.service
+Before=systemd-user-sessions.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/libexec/birdie-system-setup
+
+[Install]
+WantedBy=multi-user.target

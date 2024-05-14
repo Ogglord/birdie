@@ -1,0 +1,49 @@
+#!/usr/bin/bash
+
+if [ "${EUID:-$(id -u)}" -eq 0 ]; then
+  echo "Birdie user setup ran as root user. Exiting."
+  exit 0
+elif [ "$(whoami)" = "sddm" ]; then
+  echo "Birdie user setup ran as sddm user. Exiting."
+  exit 0
+fi
+
+# Script version
+readonly BRD_VER=1
+readonly BRD_VER_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/birdie"
+readonly BRD_VER_FILE="${BRD_VER_DIR}/brd_version"
+BRD_VER_RAN=""
+
+mkdir -p "${BRD_VER_DIR}" || { echo "Error creating directory ${BRD_VER_DIR}." >&2; exit 1; }
+
+if [[ -f "${BRD_VER_FILE}" ]]; then
+  BRD_VER_RAN=$(cat "${BRD_VER_FILE}")
+fi
+
+# Run script if it has been updated
+if [[ -n "${BRD_VER_RAN}" && "${BRD_VER}" == "${BRD_VER_RAN}" ]]; then
+    echo "Birdie user setup has already run. Exiting..."
+    exit 0
+fi
+
+# Set ptyxis opacity to 1 by default
+raw="$(gsettings get org.gnome.Ptyxis profile-uuids)"
+uuids="$(sed -En 's|[^0-9a-z]*||g; s|([0-9a-z]{32})|\1\n|gp' <<<${raw})"
+for i in ${uuids}; do
+  location="org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/${i}/"
+  gsettings set "${location}" opacity "1" && \
+  gsettings set "${location}" palette "dracula"; done
+
+# Also keep konsole because I like it :P
+mkdir -p $HOME/.local/share/applications
+rm -f $HOME/.local/share/applications/org.kde.konsole.desktop
+cp /usr/share/applications/org.kde.konsole.desktop $HOME/.local/share/applications/org.kde.konsole.desktop
+sed -i '/NoDisplay=true/d' $HOME/.local/share/applications/org.kde.konsole.desktop
+
+# Setup VSCode
+# Pre-install preferred VSCode Extensions
+code --install-extension ms-vscode-remote.remote-containers
+code --install-extension ms-azuretools.vscode-docker
+
+# Write the version
+echo "${BRD_VER}" > "${BRD_VER_FILE}" || { echo "Error writing to ${BRD_VER_FILE}." >&2; exit 1; }

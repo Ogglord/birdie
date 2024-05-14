@@ -1,0 +1,68 @@
+#!/usr/bin/bash
+
+# Script version
+readonly BRD_VER=4
+readonly BRD_VER_DIR="/etc/birdie"
+readonly BRD_VER_FILE="${BRD_VER_DIR}/brd_version"
+BRD_VER_RAN=""
+
+mkdir -p "${BRD_VER_DIR}" || { echo "Error creating directory ${BRD_VER_DIR}." >&2; exit 1; }
+
+if [[ -f "${BRD_VER_FILE}" ]]; then
+  BRD_VER_RAN=$(cat "${BRD_VER_FILE}")
+fi
+
+# Run script if it has been updated
+if [[ -n "${BRD_VER_RAN}" && "${BRD_VER}" == "${BRD_VER_RAN}" ]]; then
+    echo "Birdie system setup has already run. Exiting..."
+    exit 0
+fi
+
+CPU_VENDOR=$(grep "vendor_id" "/proc/cpuinfo" | uniq | awk -F": " '{ print $2 }')
+VENDOR_KARG="unset"
+
+# Kargs for KVM
+#rpm-ostree kargs --append-if-missing="kvm.ignore_msrs=1" --append-if-missing="kvm.report_ignored_msrs=0"
+
+# Setup VFIO
+#echo 'add_drivers+=" vfio vfio_iommu_type1 vfio-pci "' | sudo tee /etc/dracut.conf.d/vfio.conf
+#rpm-ostree initramfs --enable
+
+# if [[ ${CPU_VENDOR} == "AuthenticAMD" ]]; then
+#     VENDOR_KARG="amd_iommu=on"
+# elif [[ ${CPU_VENDOR} == "GenuineIntel" ]]; then
+#     VENDOR_KARG="intel_iommu=on"  
+# fi
+# if [[ ${VENDOR_KARG} == "unset" ]]; then
+#     echo "Failed to get CPU vendor, exiting..."
+#     exit 1
+# else
+#     plymouth display-message --text="Birdie is updating kargs... Please wait, this may take a while" || true
+#     rpm-ostree kargs \
+#     --append-if-missing="${VENDOR_KARG}" \
+#     --append-if-missing="iommu=pt" \
+#     --append-if-missing="rd.driver.pre=vfio_pci" \
+#     --append-if-missing="vfio_pci.disable_vga=1" \
+#     --reboot || exit 1
+# fi
+
+# Add users to libvirt and input groups
+BRDGROUPS="plugdev input libvirt docker"
+
+for BRDUSER in $(ls /home)
+do
+    for BRDGROUP in $BRDGROUPS
+    do
+        # if group does not exist, create it
+        if ! grep -q "$BRDGROUP" /etc/group; then
+            bash -c "grep \"$BRDGROUP\" /lib/group >> /etc/group"
+        fi
+        # if user is not in group, add them
+        if ! id -nG "$BRDUSER" | grep -qw "$BRDGROUP"; then
+            usermod -a -G $BRDGROUP $BRDUSER
+        fi
+    done
+done
+
+# Write the version
+echo "${BRD_VER}" > "${BRD_VER_FILE}" || { echo "Error writing to ${BRD_VER_FILE}." >&2; exit 1; }
