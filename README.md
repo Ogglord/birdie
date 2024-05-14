@@ -1,4 +1,21 @@
-# Birdie OS &nbsp; [![build-ublue](https://github.com/Ogglord/birdie/actions/workflows/build.yml/badge.svg)](https://github.com/Ogglord/birdie/actions/workflows/build.yml)
+
+
+# Birdie OS &nbsp; 
+
+<p align="center">
+    <a href="https://github.com/Ogglord/birdie/actions/workflows/build.yml">
+    <img src="https://github.com/Ogglord/birdie/actions/workflows/build.yml/badge.svg?style=flat-square&logo=github&logoColor=white"
+         alt="GitHub last commit">
+    <a href="https://github.com/Ogglord/birdie/commits/master">
+    <img src="https://img.shields.io/github/last-commit/Ogglord/birdie.svg?style=flat-square&logo=github&logoColor=white"
+         alt="GitHub last commit">
+    <a href="https://github.com/Ogglord/birdie/issues">
+    <img src="https://img.shields.io/github/issues-raw/Ogglord/birdie.svg?style=flat-square&logo=github&logoColor=white"
+         alt="GitHub issues">
+    <a href="https://github.com/Ogglord/birdie/pulls">
+    <img src="https://img.shields.io/github/issues-pr-raw/Ogglord/birdie.svg?style=flat-square&logo=github&logoColor=white"
+         alt="GitHub pull requests">
+</p>
 
 ## Installation
 
