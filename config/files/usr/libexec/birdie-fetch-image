@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 RED_FLASHING='\033[6;31m'
 
-echo -n $(jq -r '"\(.["image-name"]):\(.["image-branch"])"' < /usr/share/birdie-os/image-info.json)
+echo -n $(jq -r '"\(.["image-name"]):\(.["image-branch"])"' < /usr/share/ublue-os/image-info.json)
 
 if [[ "$(rpm-ostree status --json --booted)" =~ "ostree-image-signed" ]]; then
     echo -n -e " "
