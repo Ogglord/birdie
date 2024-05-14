@@ -72,6 +72,10 @@ modules:
     user:
       install:
         - org.inkscape.Inkscape
+        - org.videolan.VLC
+        - com.discordapp.Discord
+      remove:
+        - org.mozilla.firefox
 
   - type: fonts
     fonts:
