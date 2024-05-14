@@ -34,3 +34,15 @@ These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](ht
 ```bash
 cosign verify --key cosign.pub ghcr.io/ogglord/birdie-os
 ```
+## Applications
+
+These are a few of the native applications shipped:
+
+ - KDE6
+ - Visual Studio Code
+ - Steam
+ - Firefox 
+ - 1Password
+ - Google Chrome
+
+Adding new apps should preferably be done using flatpak or AppImages.
