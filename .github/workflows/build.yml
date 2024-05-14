@@ -25,7 +25,12 @@ jobs:
           # !! Add your recipes here 
           - recipe.yml
     steps:
-       # the build is fully handled by the reusable github action
+      - name: Remove unnecessary files
+        run: |
+          echo "Removing unnecessary files..."
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+        # the build is fully handled by the reusable github action
       - name: Build Custom Image
         uses: blue-build/github-action@v1.5
         with:
