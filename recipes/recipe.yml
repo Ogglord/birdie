@@ -15,6 +15,7 @@ modules:
       - "sysctl -p"
     scripts:
       - image-info.sh
+      - google-chrome-install.sh
 
   - type: bling
     install:
