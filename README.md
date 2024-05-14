@@ -1,6 +1,7 @@
-
+<p align="center"><img src="https://raw.githubusercontent.com/Ogglord/birdie/b04467a5eb5d85c0236397ac62125be038350b14/config/files/usr/share/pixmaps/system-logo-white.png" alt="Birdie OS"></p>
 
 # Birdie OS &nbsp; 
+
 
 <p align="center">
     <a href="https://github.com/Ogglord/birdie/actions/workflows/build.yml">
@@ -16,6 +17,8 @@
     <img src="https://img.shields.io/github/issues-pr-raw/Ogglord/birdie.svg?style=flat-square&logo=github&logoColor=white"
          alt="GitHub pull requests">
 </p>
+
+This is a custom image built upon Fedora Atomic Desktops, the base image is [bazzite](https://github.com/ublue-os/bazzite/):stable. This flavour adds developer tools and sane defaults.
 
 ## Installation
 
