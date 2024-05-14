@@ -1,4 +1,4 @@
-# Birdie &nbsp; [![build-ublue](https://github.com/Ogglord/birdie/actions/workflows/build.yml/badge.svg)](https://github.com/Ogglord/birdie/actions/workflows/build.yml)
+# Birdie OS &nbsp; [![build-ublue](https://github.com/Ogglord/birdie/actions/workflows/build.yml/badge.svg)](https://github.com/Ogglord/birdie/actions/workflows/build.yml)
 
 ## Installation
 
