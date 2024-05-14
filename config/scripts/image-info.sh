@@ -11,7 +11,8 @@ IMAGE_INFO="/usr/share/ublue-os/image-info.json"
 IMAGE_REF="ostree-image-signed:docker://ghcr.io/$IMAGE_VENDOR/$IMAGE_NAME"
 IMAGE_BRANCH_NORMALIZED="stable"
 IMAGE_TAG="latest"
-IMAGE_REPO="https://github.com/Ogglord/birdie"
+IMAGE_REPO_NAME="birdie"
+IMAGE_URL="https://github.com/$IMAGE_VENDOR/$IMAGE_REPO_NAME"
 # case $FEDORA_MAJOR_VERSION in
 #   39|40)
 #     IMAGE_TAG="stable"
@@ -29,7 +30,7 @@ cat > $IMAGE_INFO <<EOF
   "image-ref": "$IMAGE_REF",
   "image-tag": "$IMAGE_TAG",
   "image-branch": "$IMAGE_BRANCH_NORMALIZED",
-  "image-repo": "$IMAGE_REPO",
+  "image-repo-url": "$IMAGE_URL",
   "base-image-name": "Bazzite",
   "fedora-version": "$FEDORA_MAJOR_VERSION"
 }
