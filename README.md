@@ -1,6 +1,9 @@
-<p align="center"><img src="https://raw.githubusercontent.com/Ogglord/birdie/b04467a5eb5d85c0236397ac62125be038350b14/config/files/usr/share/pixmaps/system-logo-white.png" alt="Birdie OS"></p>
+# Birdie &nbsp; 
+<img align="left" width="20%"  src="https://raw.githubusercontent.com/Ogglord/birdie/b04467a5eb5d85c0236397ac62125be038350b14/config/files/usr/share/pixmaps/system-logo-white.png" alt="Birdie OS">
 
-# Birdie OS &nbsp; 
+This is a custom image built upon Fedora Atomic Desktops, the base image is [bazzite](https://github.com/ublue-os/bazzite/):stable. This spin adds a few developer tools, quality of life CLI tools and a setup with firefox, google chrome and working integration towards 1Password. This is my daily driver. It's based on the bluebuild template and built using bluebuild's [github actions](https://github.com/blue-build/github-action). It can also be built locally using the bluebuild CLI tool.
+
+<p>&nbsp;</p>
 
 
 <p align="center">
@@ -18,11 +21,11 @@
          alt="GitHub pull requests">
 </p>
 
-This is a custom image built upon Fedora Atomic Desktops, the base image is [bazzite](https://github.com/ublue-os/bazzite/):stable. This flavour adds developer tools and sane defaults.
+<p>&nbsp;</p>
 
 ## Installation
 
-To rebase an existing atomic Fedora installation to the latest build:
+The recommendation is to install another atomic Fedora distro first, and rebase the existing installation to the latest Birdie build:
 
 - First rebase to the unsigned image, to get the proper signing keys and policies installed:
   ```
