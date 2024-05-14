@@ -1,8 +1,31 @@
-# Birdie &nbsp; [![build-ublue](https://github.com/Ogglord/birdie/actions/workflows/build.yml/badge.svg)](https://github.com/Ogglord/birdie/actions/workflows/build.yml)
+# Birdie &nbsp; 
+<img align="left" width="20%"  src="https://raw.githubusercontent.com/Ogglord/birdie/b04467a5eb5d85c0236397ac62125be038350b14/config/files/usr/share/pixmaps/system-logo-white.png" alt="Birdie OS">
+
+This is a custom image built upon Fedora Atomic Desktops, the base image is [bazzite](https://github.com/ublue-os/bazzite/):stable. This spin adds a few developer tools, quality of life CLI tools and a setup with firefox, google chrome and working integration towards 1Password. This is my daily driver. It's based on the bluebuild template and built using bluebuild's [github actions](https://github.com/blue-build/github-action). It can also be built locally using the bluebuild CLI tool.
+
+<p>&nbsp;</p>
+
+
+<p align="center">
+    <a href="https://github.com/Ogglord/birdie/actions/workflows/build.yml">
+    <img src="https://github.com/Ogglord/birdie/actions/workflows/build.yml/badge.svg?style=flat-square&logo=github&logoColor=white"
+         alt="GitHub last commit">
+    <a href="https://github.com/Ogglord/birdie/commits/master">
+    <img src="https://img.shields.io/github/last-commit/Ogglord/birdie.svg?style=flat-square&logo=github&logoColor=white"
+         alt="GitHub last commit">
+    <a href="https://github.com/Ogglord/birdie/issues">
+    <img src="https://img.shields.io/github/issues-raw/Ogglord/birdie.svg?style=flat-square&logo=github&logoColor=white"
+         alt="GitHub issues">
+    <a href="https://github.com/Ogglord/birdie/pulls">
+    <img src="https://img.shields.io/github/issues-pr-raw/Ogglord/birdie.svg?style=flat-square&logo=github&logoColor=white"
+         alt="GitHub pull requests">
+</p>
+
+<p>&nbsp;</p>
 
 ## Installation
 
-To rebase an existing atomic Fedora installation to the latest build:
+The recommendation is to install another atomic Fedora distro first, and rebase the existing installation to the latest Birdie build:
 
 - First rebase to the unsigned image, to get the proper signing keys and policies installed:
   ```
