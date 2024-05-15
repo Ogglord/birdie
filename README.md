@@ -79,3 +79,7 @@ Default flatpaks
  - Discord
 
 Adding new apps should preferably be done using flatpak or AppImages.
+
+## Credits
+ - https://github.com/EpicOfficer/Quantix/
+
