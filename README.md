@@ -78,7 +78,7 @@ Default flatpaks
  - VLC
  - Discord
 
-Adding new apps should preferably be done using flatpak or AppImages.
+Adding new apps should preferably be done using flatpak, distrobox export or AppImages.
 
 ## Credits
 
