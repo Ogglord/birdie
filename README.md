@@ -81,5 +81,9 @@ Default flatpaks
 Adding new apps should preferably be done using flatpak or AppImages.
 
 ## Credits
+
+Inspired by
+
+ - https://github.com/briorg/bluefin
  - https://github.com/EpicOfficer/Quantix/
 
