@@ -45,6 +45,11 @@ modules:
       - rsync
       - tealdeer
       - tmux
+      - pv
+      - bsdtar
+      - xorriso
+      - syslinux
+      - mtools
        
 
   - type: systemd
