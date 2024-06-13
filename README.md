@@ -1,7 +1,9 @@
 # Birdie &nbsp; 
 <img align="left" width="20%"  src="https://raw.githubusercontent.com/Ogglord/birdie/b04467a5eb5d85c0236397ac62125be038350b14/config/files/usr/share/pixmaps/system-logo-white.png" alt="Birdie OS">
 
-This is a custom image built upon Fedora Atomic Desktops, the base image is [bazzite](https://github.com/ublue-os/bazzite/):stable. This spin adds a few developer tools, quality of life CLI tools and a setup with firefox, google chrome and working integration towards 1Password. This is my daily driver. It's based on the bluebuild template and built using bluebuild's [github actions](https://github.com/blue-build/github-action). It can also be built locally using the bluebuild CLI tool.
+&nbsp;&nbsp;**Note: This is the *:testing* branch**
+
+This is a custom image built upon Fedora Atomic Desktops, the base image is [bazzite](https://github.com/ublue-os/bazzite/):testing. This spin adds a few developer tools, quality of life CLI tools and a setup with firefox, google chrome and working integration towards 1Password. This is my daily driver. It's based on the bluebuild template and built using bluebuild's [github actions](https://github.com/blue-build/github-action). It can also be built locally using the bluebuild CLI tool.
 
 <p>&nbsp;</p>
 
@@ -29,7 +31,7 @@ The recommendation is to install another atomic Fedora distro first, and rebase 
 
 - First rebase to the unsigned image, to get the proper signing keys and policies installed:
   ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/ogglord/birdie-os:latest
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/ogglord/birdie-os:br-testing-40
   ```
 - Reboot to complete the rebase:
   ```
@@ -37,7 +39,7 @@ The recommendation is to install another atomic Fedora distro first, and rebase 
   ```
 - Then rebase to the signed image, like so:
   ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ogglord/birdie-os:latest
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ogglord/birdie-os:br-testing-40
   ```
 - Reboot again to complete the installation
   ```
