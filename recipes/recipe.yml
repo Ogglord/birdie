@@ -2,7 +2,7 @@ name: birdie-os
 description: Bazzite for developers
 
 base-image: ghcr.io/ublue-os/bazzite
-image-version: stable
+image-version: testing
 
 modules:
   - type: files
