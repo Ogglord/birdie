@@ -31,9 +31,6 @@ modules:
       - docker-ce-cli
       - docker-buildx-plugin
       - docker-compose-plugin
-      - podman-compose
-      - podman-tui
-      - podmansh
       - bat
       - eza
       - firefox
@@ -60,8 +57,9 @@ modules:
       enabled:
         - birdie-system-setup
         - docker.socket
-        - podman.socket
         - libvirtd
+      disabled:
+        - podman.socket
 
   - type: script
     snippets:
