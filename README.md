@@ -1,7 +1,7 @@
 # Birdie &nbsp; 
 <img align="left" width="20%"  src="https://raw.githubusercontent.com/Ogglord/birdie/b04467a5eb5d85c0236397ac62125be038350b14/config/files/usr/share/pixmaps/system-logo-white.png" alt="Birdie OS">
 
-This is a custom image built upon Fedora Atomic Desktops, the base image is [bazzite](https://github.com/ublue-os/bazzite/):stable. This spin adds a few developer tools, quality of life CLI tools and a setup with firefox, google chrome and working integration towards 1Password. This is my daily driver. It's based on the bluebuild template and built using bluebuild's [github actions](https://github.com/blue-build/github-action). It can also be built locally using the bluebuild CLI tool.
+This is a custom image built upon Fedora Atomic Desktops, the base image is [bazzite](https://github.com/ublue-os/bazzite/):stable. This spin adds a few developer tools, quality of life CLI tools. This is my daily driver. It's based on the bluebuild template and built using bluebuild's [github actions](https://github.com/blue-build/github-action). It can also be built locally using the bluebuild CLI tool.
 
 <p>&nbsp;</p>
 
@@ -63,22 +63,14 @@ cosign verify --key cosign.pub ghcr.io/ogglord/birdie-os
 ```
 ## Applications
 
-These are a few of the native applications shipped:
-
- - KDE6
- - Visual Studio Code
- - Steam
- - Firefox 
- - 1Password
- - Google Chrome
-
 Default flatpaks
 
+ - Floorp
  - Inkscape
  - VLC
  - Discord
 
-Adding new apps should preferably be done using flatpak, distrobox export or AppImages.
+Adding new apps should preferably be done using flatpak, nix, distrobox export or AppImages.
 
 ## Credits
 
