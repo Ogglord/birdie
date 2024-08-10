@@ -15,39 +15,18 @@ modules:
       - "sysctl -p"
     scripts:
       - image-info.sh
-      - google-chrome-install.sh
-
-  - type: bling
-    install:
-      - 1password # install 1Password (stable) and `op` CLI tool      
+      - google-chrome-install.sh    
 
   - type: rpm-ostree
     install:
       - virt-manager
       - edk2-ovmf
       - qemu
-      - code
-      - docker-ce
-      - docker-ce-cli
-      - docker-buildx-plugin
-      - docker-compose-plugin
-      - bat
-      - eza
-      - firefox
-      - firefox-langpacks
-      - fzf
-      - ncdu
-      - rclone
-      - ripgrep
-      - rsync
-      - tealdeer
-      - tmux
       - pv
       - bsdtar
       - xorriso
       - syslinux
       - mtools
-       
 
   - type: systemd
     user:
@@ -77,6 +56,7 @@ modules:
         - org.inkscape.Inkscape
         - org.videolan.VLC
         - com.discordapp.Discord
+        - one.ablaze.floorp
       remove:
         - org.mozilla.firefox
 
