@@ -7,26 +7,47 @@ image-version: stable
 modules:
   - type: files
     files:
-      - usr: /usr
-      - etc: /etc
-
-  - type: script
-    snippets:
-      - "sysctl -p"
-    scripts:
-      - image-info.sh
-      - google-chrome-install.sh    
+      - source: system
+        destination: /
 
   - type: rpm-ostree
     install:
       - virt-manager
+      - virt-viewer
       - edk2-ovmf
+      - libvirt
       - qemu
+      - qemu-char-spice
+      - qemu-device-display-virtio-gpu
+      - qemu-device-display-virtio-vga
+      - qemu-device-usb-redirect
+      - qemu-img
+      - qemu-system-x86-core
+      - qemu-user-binfmt
+      - qemu-user-static
+      - code
+      - docker-ce
+      - docker-ce-cli
+      - docker-buildx-plugin
+      - docker-compose-plugin
+      - papirus-icon-theme      
       - pv
       - bsdtar
       - xorriso
       - syslinux
       - mtools
+
+  - type: script
+    snippets:
+      - "sysctl -p"
+      - "sed -i '/^PRETTY_NAME/s/Bazzite/Birdie/' /usr/lib/os-release"
+      - "sed -i 's/bazzite_logo.svgz/birdie_logo.svgz/g' /usr/share/plasma/look-and-feel/com.valve.vapor.desktop/contents/splash/Splash.qml"
+      - "sed -i 's/bazzite_logo.svgz/birdie_logo.svgz/g' /usr/share/plasma/look-and-feel/com.valve.vgui.desktop/contents/splash/Splash.qml"
+      - "sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/vscode.repo"
+      - "sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/docker-ce.repo"      
+    scripts:
+      - image-info.sh
+      - google-chrome-install.sh         
 
   - type: systemd
     user:
@@ -36,18 +57,9 @@ modules:
       enabled:
         - birdie-system-setup
         - docker.socket
-        - libvirtd
+        - libvirtd        
       disabled:
         - podman.socket
-
-  - type: script
-    snippets:
-      - "wget -qO- https://git.io/papirus-icon-theme-install | sh"
-      - "sed -i '/^PRETTY_NAME/s/Bazzite/Birdie/' /usr/lib/os-release"
-      - "sed -i 's/bazzite_logo.svgz/birdie_logo.svgz/g' /usr/share/plasma/look-and-feel/com.valve.vapor.desktop/contents/splash/Splash.qml"
-      - "sed -i 's/bazzite_logo.svgz/birdie_logo.svgz/g' /usr/share/plasma/look-and-feel/com.valve.vgui.desktop/contents/splash/Splash.qml"
-      - "sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/vscode.repo"
-      - "sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/docker-ce.repo"
 
   - type: default-flatpaks
     notify: true
