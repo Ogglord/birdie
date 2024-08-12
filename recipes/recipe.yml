@@ -37,6 +37,8 @@ modules:
       - xorriso
       - syslinux
       - mtools
+    remove:
+      - ptyxis
 
   - type: script
     snippets:
