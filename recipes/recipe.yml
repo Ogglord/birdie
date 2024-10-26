@@ -52,7 +52,6 @@ modules:
       enabled:
         - birdie-system-setup
         - docker.socket
-        - libvirtd
       disabled:
         - podman.socket
 
