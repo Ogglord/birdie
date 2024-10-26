@@ -13,6 +13,7 @@ mkdir -p /usr/share/color-schemes
 mkdir -p /usr/share/themes
 mkdir -p /usr/share/icons
 mkdir -p /usr/etc/skel/.config/Kvantum
+mkdir -p /usr/etc/xdg/gtk-4.0/
 
 cp -r gtk/assets /usr/etc/skel/.config/
 cp gtk/gtk-4.0/gtk.css /usr/etc/xdg/gtk-4.0/
