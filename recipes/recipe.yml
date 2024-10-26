@@ -12,21 +12,14 @@ modules:
       - source: system
         destination: /
 
+  - type: script
+    snippets:
+      - "curl -o /tmp/ProtonMail-desktop-beta.rpm https://proton.me/download/mail/linux/ProtonMail-desktop-beta.rpm"
+      - "rpm-ostree install /tmp/ProtonMail-desktop-beta.rpm"
+
   - type: rpm-ostree
     install:
-      - virt-manager
-      - virt-viewer
-      - edk2-ovmf
-      - libvirt
-      - qemu
-      - qemu-char-spice
-      - qemu-device-display-virtio-gpu
-      - qemu-device-display-virtio-vga
-      - qemu-device-usb-redirect
-      - qemu-img
-      - qemu-system-x86-core
-      - qemu-user-binfmt
-      - qemu-user-static
+      - zsh
       - code
       - docker-ce
       - docker-ce-cli
@@ -49,6 +42,7 @@ modules:
     scripts:
       - image-info.sh
       - google-chrome-install.sh
+      - install_dracula.sh
 
   - type: systemd
     user:
