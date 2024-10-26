@@ -18,6 +18,9 @@ mkdir -p /usr/etc/xdg/gtk-4.0/
 ## remove any existing...
 rm -rf "/usr/share/plasma/desktoptheme/Dracula-Solid"
 rm -rf "/usr/share/plasma/look-and-feel/Dracula"
+rm -rf "/usr/share/icons/Dracula-cursors"
+rm -f "/usr/share/color-schemes/Dracula.colors"
+rm -f "/usr/share/color-schemes/DraculaPurple.colors"
 
 cp -r gtk/assets /usr/etc/skel/.config/
 cp gtk/gtk-4.0/gtk.css /usr/etc/xdg/gtk-4.0/
