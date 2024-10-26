@@ -1,8 +1,10 @@
 name: birdie-os
-description: Bazzite for developers
+description: Bazzite for me
+alt-tags:
+  - testing
 
-base-image: ghcr.io/ublue-os/bazzite
-image-version: stable
+base-image: ghcr.io/ublue-os/bazzite-nvidia
+image-version: testing
 
 modules:
   - type: files
@@ -12,7 +14,6 @@ modules:
 
   - type: rpm-ostree
     install:
-      - alacritty
       - virt-manager
       - virt-viewer
       - edk2-ovmf
@@ -31,14 +32,11 @@ modules:
       - docker-ce-cli
       - docker-buildx-plugin
       - docker-compose-plugin
-      - papirus-icon-theme      
       - pv
       - bsdtar
       - xorriso
       - syslinux
       - mtools
-    remove:
-      - ptyxis
 
   - type: script
     snippets:
@@ -47,10 +45,10 @@ modules:
       - "sed -i 's/bazzite_logo.svgz/birdie_logo.svgz/g' /usr/share/plasma/look-and-feel/com.valve.vapor.desktop/contents/splash/Splash.qml"
       - "sed -i 's/bazzite_logo.svgz/birdie_logo.svgz/g' /usr/share/plasma/look-and-feel/com.valve.vgui.desktop/contents/splash/Splash.qml"
       - "sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/vscode.repo"
-      - "sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/docker-ce.repo"      
+      - "sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/docker-ce.repo"
     scripts:
       - image-info.sh
-      - google-chrome-install.sh         
+      - google-chrome-install.sh
 
   - type: systemd
     user:
@@ -60,7 +58,7 @@ modules:
       enabled:
         - birdie-system-setup
         - docker.socket
-        - libvirtd        
+        - libvirtd
       disabled:
         - podman.socket
 
@@ -68,24 +66,8 @@ modules:
     notify: true
     user:
       install:
-        - org.inkscape.Inkscape
-        - org.videolan.VLC
         - com.discordapp.Discord
-        - one.ablaze.floorp
       remove:
         - org.mozilla.firefox
-
-  - type: fonts
-    fonts:
-      nerd-fonts:
-        - FiraCode
-        - Hack
-        - SourceCodePro
-        - Terminus
-        - JetBrainsMono
-        - NerdFontsSymbolsOnly
-      google-fonts:
-        - Roboto
-        - Open Sans
 
   - type: signing
