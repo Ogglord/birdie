@@ -1,15 +1,14 @@
-name: bluebuild
+name: build-birdie
 on:
   schedule:
     - cron: "00 17 * * *" # build at 17:00 UTC every day 
                           # (20 minutes after last ublue images start building)
   push:
-    paths-ignore: # don't rebuild if only documentation has changed
-      - "**.md"
-      
+    paths-ignore:
+      - '**.md'
+      - '**.txt'
   pull_request:
   workflow_dispatch: # allow manually triggering builds
-
 jobs:
   bluebuild:
     name: Build Custom Image
@@ -24,12 +23,6 @@ jobs:
         recipe:
           - recipe.yml
     steps:
-      - name: Remove unnecessary files
-        run: |
-          echo "Removing unnecessary files..."
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-        # the build is fully handled by the reusable github action
       - name: Build Custom Image
         uses: blue-build/github-action@v1.6
         with:
