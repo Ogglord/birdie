@@ -18,7 +18,8 @@ mkdir -p /usr/etc/xdg/gtk-4.0/
 cp -r gtk/assets /usr/etc/skel/.config/
 cp gtk/gtk-4.0/gtk.css /usr/etc/xdg/gtk-4.0/
 cp gtk/gtk-4.0/gtk-dark.css /usr/etc/xdg/gtk-4.0/
-mv gtk/kde/plasma/desktoptheme/* /usr/share/plasma/desktoptheme/ 
+rm -rf "/usr/share/plasma/desktoptheme/Dracula-Solid"
+mv gtk/kde/plasma/desktoptheme/* /usr/share/plasma/desktoptheme/
 mv gtk/kde/plasma/look-and-feel/Plasma6/Dracula /usr/share/plasma/look-and-feel/
 mv gtk/kde/cursors/Dracula-cursors /usr/share/icons/
 mv gtk/kde/aurorae/* /usr/share/aurorae/themes/

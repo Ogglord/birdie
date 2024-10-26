@@ -4,13 +4,13 @@
 
 set -oue pipefail
 
-FEDORA_MAJOR_VERSION="40"
+FEDORA_MAJOR_VERSION="41"
 IMAGE_VENDOR="ogglord"
 IMAGE_NAME="birdie-os"
 IMAGE_INFO="/usr/share/ublue-os/image-info.json"
 IMAGE_REF="ostree-image-signed:docker://ghcr.io/$IMAGE_VENDOR/$IMAGE_NAME"
-IMAGE_BRANCH_NORMALIZED="latest"
-IMAGE_TAG="latest"
+IMAGE_BRANCH_NORMALIZED="testing"
+IMAGE_TAG="testing"
 IMAGE_REPO_NAME="birdie"
 IMAGE_URL="https://github.com/$IMAGE_VENDOR/$IMAGE_REPO_NAME"
 # case $FEDORA_MAJOR_VERSION in
