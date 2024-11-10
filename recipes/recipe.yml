@@ -4,7 +4,7 @@ alt-tags:
   - testing
 
 base-image: ghcr.io/ublue-os/bazzite-nvidia
-image-version: testing
+image-version: stable
 
 modules:
   - type: files
