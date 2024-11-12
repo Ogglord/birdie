@@ -24,7 +24,7 @@ jobs:
           - recipe.yml
     steps:
       - name: Build Custom Image
-        uses: blue-build/github-action@v1.6
+        uses: blue-build/github-action@v1.7
         env:
           VERSION: 41
           OS_VERSION: 41
